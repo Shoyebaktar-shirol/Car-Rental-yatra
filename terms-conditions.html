@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms and Conditions - Online Car Rental</title>
+    <center>
+      <h1><b>Car Rental</b></h1>
+    </center>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      h1,
+      h2,
+      h3 {
+        margin-top: 20px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      #confirmation-message {
+        color: green;
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Terms and Conditions</h1>
+      <p>
+        Welcome to our online car rental service. Please read these terms and
+        conditions carefully before booking a car.
+      </p>
+
+      <h2>1. Booking and Payment</h2>
+      <p>
+        1.1. All bookings are subject to availability.<br />
+        1.2. Full payment must be made at the time of booking.<br />
+        1.3. We accept major credit cards, debit cards, and other payment
+        methods as specified on our website.
+      </p>
+
+      <h2>2. Rental Period</h2>
+      <p>
+        2.1. The rental period is specified in the booking confirmation.<br />
+        2.2. Late returns may incur additional charges.
+      </p>
+
+      <h2>3. Driver Requirements</h2>
+      <p>
+        3.1. The driver must hold a valid driver's license.<br />
+        3.2. The driver must be at least 21 years old.<br />
+        3.3. Additional drivers must be registered at the time of booking and
+        may incur additional charges.
+      </p>
+
+      <h2>4. Insurance and Liability</h2>
+      <p>
+        4.1. The rental car is covered by basic insurance.<br />
+        4.2. The renter is responsible for any damage to the car not covered by
+        insurance.<br />
+        4.3. Additional insurance options are available and can be purchased at
+        the time of booking.
+      </p>
+
+      <h2>5. Fuel Policy</h2>
+      <p>
+        5.1. The car will be provided with a full tank of fuel.<br />
+        5.2. The car must be returned with a full tank of fuel.<br />
+        5.3. Refueling charges may apply if the car is returned without a full
+        tank.
+      </p>
+
+      <h2>6. Cancellation Policy</h2>
+      <p>
+        6.1. Cancellations made more than 48 hours before the rental period will
+        receive a full refund.<br />
+        6.2. Cancellations made within 48 hours of the rental period will incur
+        a cancellation fee.<br />
+        6.3. No-shows will be charged the full rental amount.
+      </p>
+
+      <h2>7. Use of the Rental Car</h2>
+      <p>
+        7.1. The rental car must not be used for illegal activities.<br />
+        7.2. The rental car must not be used to transport hazardous
+        materials.<br />
+        7.3. The rental car must be returned in the same condition as it was
+        provided.
+      </p>
+
+      <h2>8. Privacy and Data Protection</h2>
+      <p>
+        8.1. We respect your privacy and are committed to protecting your
+        personal data.<br />
+        8.2. Your personal information will be used in accordance with our
+        Privacy Policy.
+      </p>
+
+      <h2>9. Governing Law</h2>
+      <p>
+        9.1. These terms and conditions are governed by and construed in
+        accordance with the laws of the jurisdiction in which the rental takes
+        place.<br />
+        9.2. Any disputes arising out of or in connection with these terms and
+        conditions will be subject to the exclusive jurisdiction of the courts
+        of that jurisdiction.
+      </p>
+
+      <h2>10. Amendments</h2>
+      <p>
+        10.1. We reserve the right to amend these terms and conditions at any
+        time.<br />
+        10.2. Any amendments will be posted on our website and will become
+        effective immediately upon posting.
+      </p>
+
+      <p>
+        If you have any questions about these terms and conditions, please
+        contact our customer service team.
+      </p>
+      <br />
+      <br />
+      <br />
+
+      <!-- Checkbox and Permission Button -->
+      <div class="form-group">
+        <input type="checkbox" class="form-check-input" id="agree-checkbox" />
+        <label class="form-check-label" for="agree-checkbox"
+          >I have read and agree to the Terms and Conditions</label
+        >
+      </div>
+      <button type="button" class="btn" id="grant-permission-btn" disabled>
+        Grant Permission
+      </button>
+      <p id="confirmation-message">Permission granted! You can now proceed.</p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var agreeCheckbox = document.getElementById("agree-checkbox");
+        var grantPermissionBtn = document.getElementById(
+          "grant-permission-btn"
+        );
+        var confirmationMessage = document.getElementById(
+          "confirmation-message"
+        );
+
+        agreeCheckbox.addEventListener("change", function () {
+          grantPermissionBtn.disabled = !this.checked;
+          confirmationMessage.style.display = "none"; // Hide confirmation message if checkbox is unchecked again
+        });
+
+        grantPermissionBtn.addEventListener("click", function () {
+          confirmationMessage.style.display = "block"; // Show confirmation message
+        });
+      });
+    </script>
+  </body>
+</html>
