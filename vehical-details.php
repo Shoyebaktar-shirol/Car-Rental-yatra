@@ -454,31 +454,56 @@ if (isset($_POST['submit'])) {
                   </div>
                 </div>
 
+<form action="upload.php" method="post" enctype="multipart/form-data" id="uploadForm">
+  <label for="pan-card">Upload PAN Card:*</label><br>
+  <input type="file" id="pan-card" name="pan_card" accept=".pdf,.jpg,.jpeg" required /><br>
+
+  <label for="driving-license">Upload Driving License: *</label>
+  <input type="file" id="driving-license" name="driving_license" accept=".pdf,.jpg,.jpeg" required /><br />
+
+  <label for="terms-checkbox">
+    <input type="checkbox" id="terms-checkbox" required />
+    I agree to the <a href="terms-conditions.html" target="_blank">Terms and Conditions</a>
+  </label>
+
+  <a href="#loginform" class="btn btn-xs uppercase" id="loginBtn" data-toggle="modal" data-dismiss="modal">
+    Login For Book
+  </a>
+</form>
+
+<script>
+
+  const panCardInput = document.getElementById('pan-card');
+  const drivingLicenseInput = document.getElementById('driving-license');
+  const termsCheckbox = document.getElementById('terms-checkbox');
+  const loginBtn = document.getElementById('loginBtn');
 
 
-
-                <form action="upload.php" method="post" enctype="multipart/form-data">
-                  <label for="pan-card">Upload PAN Card:*</label><br>
-                  <input type="file" id="pan-card" name="pan_card" accept=".pdf,.jpg,.jpeg" required /><br>
-
-                  <label for="driving-license">Upload Driving License: *</label>
-                  <input type="file" id="driving-license" name="driving_license" accept=".pdf,.jpg,.jpeg"
-                    required /><br />
-                </form>
+  panCardInput.addEventListener('change', validateForm);
+  drivingLicenseInput.addEventListener('change', validateForm);
+  termsCheckbox.addEventListener('change', validateForm);
 
 
-                <label for="terms-checkbox">
-                  I agree to the <a href="terms-conditions.html" target="_blank">Terms and Conditions</a>
-                </label>
+  validateForm();
 
+  function validateForm() {
 
-                <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login For
-                  Book</a>
-                <br>
-                <label>
+    const panCardFilled = panCardInput.value !== '';
+    const drivingLicenseFilled = drivingLicenseInput.value !== '';
+    const termsChecked = termsCheckbox.checked;
 
-                </label>
-            </div>
+    if (panCardFilled && drivingLicenseFilled && termsChecked) {
+      loginBtn.classList.remove('disabled');
+      loginBtn.setAttribute('data-toggle', 'modal');
+      loginBtn.setAttribute('data-dismiss', 'modal');
+    } else {
+      loginBtn.classList.add('disabled');
+      loginBtn.removeAttribute('data-toggle');
+      loginBtn.removeAttribute('data-dismiss');
+    }
+  }
+</script>
+
 
 
           <?php } ?>
